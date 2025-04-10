@@ -1,0 +1,40 @@
+{% extends "courses/base.html" %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(to right, #b100e8, #e2bfdf); 
+    }
+    .card {
+        border-radius: 20px; /* Slightly rounded corners */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-5">
+                <h2 class="text-center text-primary mb-4 fw-bold">Welcome Back</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2">Login</button>
+                </form>
+                <<p class="text-center mt-3">
+                    Forget Password? 
+                    <a href="{% url 'password_reset' %}" class="fw-semibold text-decoration-none text-danger">Reset</a>
+                </p>
+                
+                <p class="text-center mt-3">
+                    Don't have an account? 
+                    <a href="{% url 'register' %}" class="fw-semibold text-decoration-none text-primary">Register</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

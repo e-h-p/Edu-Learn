@@ -1,0 +1,35 @@
+{% extends "courses/base.html" %}
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<style>
+    body {
+        background: linear-gradient(to right, #11998e, #38ef7d);  
+    }
+    .card {
+        border-radius: 20px; /* Slightly rounded corners */
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Soft shadow */
+    }
+</style>
+
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <div class="col-md-6">
+        <div class="card shadow-lg border-0">
+            <div class="card-body p-5">
+                <h2 class="text-center text-success mb-4 fw-bold">Create an Account</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        {{ form.as_p }}
+                    </div>
+                    <button type="submit" class="btn btn-success w-100 py-2">Register</button>
+                </form>
+                <p class="text-center mt-3">
+                    Already have an account? 
+                    <a href="{% url 'login' %}" class="fw-semibold text-decoration-none text-success">Login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

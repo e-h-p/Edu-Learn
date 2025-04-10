@@ -1,0 +1,16 @@
+{% extends "courses/base.html" %}
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Update Profile</h2>
+    <form method="post" class="p-4 border rounded bg-white shadow-sm">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100">Update Profile</button>
+    </form>
+    <div class="text-center mt-3">
+        <a href="/password_change" class="btn btn-warning">Change Password</a>
+    </div>
+</div>
+{% endblock %}
