@@ -90,8 +90,8 @@ DEFAULT_FROM_EMAIL = 'noreply@edulearn.com'
 
 # Security for production
 if ENVIRONMENT == 'production':
-    CSRF_TRUSTED_ORIGINS = ['https://your-app-name.up.railway.app']
-    ALLOWED_HOSTS = ['your-app-name.up.railway.app']
+    ALLOWED_HOSTS = ['edulearn-production.up.railway.app']
+    CSRF_TRUSTED_ORIGINS = ['https://edulearn-production.up.railway.app']
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     SECURE_SSL_REDIRECT = True
