@@ -20,8 +20,8 @@ SECRET_KEY = env('SECRET_KEY')
 
 DEBUG = ENVIRONMENT == 'development'
 
-ALLOWED_HOSTS = ['edulearn-production.up.railway.app'] if not DEBUG else ['*']
-CSRF_TRUSTED_ORIGINS = ['https://edulearn-production.up.railway.app'] if not DEBUG else []
+ALLOWED_HOSTS = ['edu-learn-production.up.railway.app'] if not DEBUG else ['*']
+CSRF_TRUSTED_ORIGINS = ['https://edu-learn-production.up.railway.app'] if not DEBUG else []
 
 # Installed apps
 INSTALLED_APPS = [
