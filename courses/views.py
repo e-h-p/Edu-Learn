@@ -16,25 +16,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CourseSerializer
 
-from django.http import HttpResponse
-from django.contrib.auth import get_user_model
-from django.views.decorators.csrf import csrf_exempt
-
-@csrf_exempt
-def create_admin(request):
-    User = get_user_model()
-    if not User.objects.filter(username="admin").exists():
-        try:
-            User.objects.create_superuser(
-                username="admin",
-                email="admin@example.com",
-                password="adminpass123"
-            )
-            return HttpResponse("Superuser created successfully!")
-        except Exception as e:
-            return HttpResponse(f"Error: {e}", status=500)
-    return HttpResponse("Superuser already exists.")
-
 # API Views
 class CourseListAPI(APIView):
     def get(self, request):

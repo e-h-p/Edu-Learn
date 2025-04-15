@@ -4,13 +4,12 @@ from .views import (
     course_update, course_delete,
     lesson_create, lesson_update, lesson_delete,
     enroll_student, enrolled_students,
-    register, user_login, user_logout, profile, create_admin,
+    register, user_login, user_logout, profile,
     CourseListAPI, CourseDetailAPI, EnrollStudentAPI  # ✅ Included EnrollStudentAPI here
 )
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
-    path('create-admin/', create_admin),
     # Course URLs
     path('', CourseListView.as_view(), name='course_list'),
     path('<int:pk>/', CourseDetailView.as_view(), name='course_detail'),
