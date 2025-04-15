@@ -16,6 +16,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from .serializers import CourseSerializer
 
+from django.http import HttpResponse
+from django.contrib.auth.models import User
+
+def create_admin(request):
+    if not User.objects.filter(username='admin').exists():
+        User.objects.create_superuser('admin', 'admin@example.com', 'adminpass123')
+        return HttpResponse("Superuser created successfully!")
+    return HttpResponse("Superuser already exists.")
+
 # API Views
 class CourseListAPI(APIView):
     def get(self, request):
